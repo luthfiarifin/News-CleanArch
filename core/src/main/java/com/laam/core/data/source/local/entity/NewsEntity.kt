@@ -3,11 +3,12 @@ package com.laam.core.data.source.local.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.laam.core.data.source.local.room.NewsDatabase
 
 /**
  * Created by luthfiarifin on 1/7/2021.
  */
-@Entity(tableName = "news")
+@Entity(tableName = NewsDatabase.NEWS_COLUMN_NAME)
 data class NewsEntity(
     @ColumnInfo(name = "author") val author: String,
     @ColumnInfo(name = "content") val content: String?,
