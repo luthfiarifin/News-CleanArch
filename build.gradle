@@ -10,6 +10,8 @@ buildscript {
     ext.espresso_version = "3.3.0"
     ext.multidex_version = "2.0.1"
 
+    ext.material_version = "1.2.1"
+
     ext.retrofit_version = "2.9.0"
     ext.logging_interceptor_version = '4.9.0'
 
