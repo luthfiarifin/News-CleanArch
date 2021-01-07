@@ -11,6 +11,7 @@ import com.laam.core.data.source.local.entity.NewsEntity
 abstract class NewsDatabase : RoomDatabase() {
 
     companion object {
+        const val DB_NAME = "News.db"
         const val NEWS_COLUMN_NAME = "news"
     }
 }
