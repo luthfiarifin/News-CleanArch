@@ -1,1 +1,9 @@
 apply from: '../shared_dependencies.gradle'
+
+dependencies {
+    implementation "com.google.android.material:material:$material_version"
+
+    // Navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+}
