@@ -46,6 +46,7 @@ android {
 
 dependencies {
     implementation project(":feature:base")
+    implementation project(":feature:home")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
