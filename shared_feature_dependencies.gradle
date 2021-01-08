@@ -1,5 +1,3 @@
-apply from: '../shared_dependencies.gradle'
-
 dependencies {
     implementation "com.google.android.material:material:$material_version"
 

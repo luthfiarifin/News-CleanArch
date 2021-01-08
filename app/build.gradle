@@ -7,6 +7,7 @@ plugins {
 }
 
 apply from: '../shared_feature_dependencies.gradle'
+apply from: '../shared_dependencies.gradle'
 
 android {
     compileSdkVersion 30
