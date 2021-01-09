@@ -6,7 +6,6 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
-apply from: '../shared_feature_dependencies.gradle'
 apply from: '../shared_dependencies.gradle'
 
 android {
@@ -45,8 +44,15 @@ android {
 }
 
 dependencies {
-    implementation project(":feature:base")
     implementation project(":feature:home")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.activity:activity-ktx:$activity_ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+
+    // Navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }
