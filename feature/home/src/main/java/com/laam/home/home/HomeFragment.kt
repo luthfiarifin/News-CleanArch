@@ -3,6 +3,7 @@ package com.laam.home.home
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.google.android.material.tabs.TabLayoutMediator
 import com.laam.base.BaseFragment
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
@@ -33,6 +34,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         setUpBinding()
         setUpAdapter()
         observeTopHeadline()
+        setUpViewPager()
     }
 
     private fun setUpBinding() {
@@ -43,6 +45,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         with(viewBinding.rvTopHeadline) {
             adapter = rvTopHeadLineAdapter
         }
+    }
+
+    private fun setUpViewPager() {
+        val categoryList = listOf(
+            "Kesehatan",
+            "Olahraga",
+            "Otomotif",
+            "Teknologi",
+            "Makanan"
+        )
+
+        viewBinding.viewPager.adapter = activity?.let { HomePagerAdapter(it, categoryList) }
+        setUpTabMediator(categoryList)
+    }
+
+    private fun setUpTabMediator(categoryList: List<String>) {
+        TabLayoutMediator(
+            viewBinding.tabLayout, viewBinding.viewPager
+        ) { tab, position -> tab.text = categoryList[position] }.attach()
     }
 
     private fun onTopHeadlineOnClick(news: News) {
@@ -80,7 +101,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun startShimmer(isStart: Boolean = true) {
-        if (isStart) viewBinding.placeholderTopHeadline.startShimmer()
-        else viewBinding.placeholderTopHeadline.stopShimmer()
+        if (isStart) viewBinding.placeholderTopHeadline.shimmer.startShimmer()
+        else viewBinding.placeholderTopHeadline.shimmer.stopShimmer()
     }
 }
