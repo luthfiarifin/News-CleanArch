@@ -30,8 +30,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpBinding()
         setUpAdapter()
         observeTopHeadline()
+    }
+
+    private fun setUpBinding() {
+        viewBinding.viewModel = viewModel
     }
 
     private fun setUpAdapter() {
@@ -48,16 +53,34 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         viewModel.newsTopHeadLine.observe(viewLifecycleOwner, { news ->
             when (news) {
                 is Resource.Loading -> {
-
+                    viewModel.isLoading.set(true)
                 }
                 is Resource.Success -> {
                     val newsList = news.data?.map { it.mapToNews() }
                     rvTopHeadLineAdapter.submitList(newsList)
+                    startShimmer(false)
+                    viewModel.isLoading.set(false)
                 }
                 is Resource.Error -> {
-
+                    startShimmer(false)
+                    viewModel.isLoading.set(false)
                 }
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startShimmer()
+    }
+
+    override fun onPause() {
+        startShimmer(false)
+        super.onPause()
+    }
+
+    private fun startShimmer(isStart: Boolean = true) {
+        if (isStart) viewBinding.placeholderTopHeadline.startShimmer()
+        else viewBinding.placeholderTopHeadline.stopShimmer()
     }
 }
