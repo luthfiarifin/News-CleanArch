@@ -31,6 +31,8 @@ buildscript {
     ext.activity_ktx_version = "1.1.0"
     ext.fragment_ktx_version = '1.2.5'
 
+    ext.shimmer_version = '0.5.0'
+
     repositories {
         google()
         jcenter()
