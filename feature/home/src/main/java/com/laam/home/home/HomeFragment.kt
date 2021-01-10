@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.laam.base.BaseFragment
+import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
+import com.laam.core.utils.DataMapper.mapToNews
 import com.laam.home.R
 import com.laam.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpAdapter()
+        observeTopHeadline()
     }
 
     private fun setUpAdapter() {
@@ -39,5 +42,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private fun onTopHeadlineOnClick(news: News) {
         Toast.makeText(context, news.title, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun observeTopHeadline() {
+        viewModel.newsTopHeadLine.observe(viewLifecycleOwner, { news ->
+            when (news) {
+                is Resource.Loading -> {
+
+                }
+                is Resource.Success -> {
+                    val newsList = news.data?.map { it.mapToNews() }
+                    rvTopHeadLineAdapter.submitList(newsList)
+                }
+                is Resource.Error -> {
+
+                }
+            }
+        })
     }
 }
