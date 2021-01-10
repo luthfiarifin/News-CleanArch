@@ -2,6 +2,7 @@ package com.laam.base.ext
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.laam.base.ext.TimeUtils.dateFormat
 import com.laam.base.ext.TimeUtils.toTimeAgo
 
 /**
@@ -13,5 +14,11 @@ object TextViewBinding {
     @BindingAdapter("timeAgo")
     fun bindTimeAgo(view: TextView, timeAgo: String?) {
         timeAgo?.let { view.text = it.toTimeAgo() }
+    }
+
+    @JvmStatic
+    @BindingAdapter("dateFormat")
+    fun bindDateFormat(view: TextView, date: String?) {
+        date?.let { view.text = it.dateFormat() }
     }
 }
