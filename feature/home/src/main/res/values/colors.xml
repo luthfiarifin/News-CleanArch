@@ -2,4 +2,5 @@
 <resources>
 
     <color name="colorGrey">#dddddd</color>
+    <color name="colorBlack">#373737</color>
 </resources>
