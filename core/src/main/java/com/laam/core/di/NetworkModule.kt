@@ -1,11 +1,11 @@
 package com.laam.core.di
 
+import com.laam.core.data.source.remote.network.ApiService
 import com.laam.core.data.source.remote.retrofit.RetrofitNetwork
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import okhttp3.OkHttpClient
 
 /**
  * Created by luthfiarifin on 1/7/2021.
@@ -15,7 +15,7 @@ import okhttp3.OkHttpClient
 class NetworkModule {
 
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
-        return RetrofitNetwork.createNewsOkHttpClient()
-    }
+    fun provideApiService(): ApiService = RetrofitNetwork
+        .createNewsNetwork(RetrofitNetwork.createNewsOkHttpClient())
+        .create(ApiService::class.java)
 }
