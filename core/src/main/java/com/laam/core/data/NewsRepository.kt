@@ -32,18 +32,18 @@ class NewsRepository @Inject constructor(
                 data.map { it.mapToNewsDomain() }
         }.asFlow()
 
-    override fun getSearch(page: Int, q: String?): Flow<Resource<List<NewsDomain>>> =
+    override fun getSearch(page: Int, q: String): Flow<Resource<List<NewsDomain>>> =
         object : NetworkBoundResource<List<NewsDomain>, List<ArticleResponse>>() {
             override fun shouldFetch(data: List<NewsDomain>?): Boolean = true
 
             override fun loadFromDB(): Flow<List<NewsDomain>> =
-                localDataSource.getAllNews().map { it.map { entity -> entity.mapToNewsDomain() } }
+                localDataSource.getAllNews(q).map { it.map { entity -> entity.mapToNewsDomain() } }
 
             override suspend fun createCall(): Flow<ApiResponse<List<ArticleResponse>>> =
                 remoteDataSource.getSearch(page, q)
 
             override suspend fun saveCallResult(data: List<ArticleResponse>) {
-                val newsEntities = data.map { it.mapToNewsEntity() }
+                val newsEntities = data.map { it.mapToNewsEntity(q) }
                 localDataSource.insertNews(newsEntities)
             }
         }.asFlow()

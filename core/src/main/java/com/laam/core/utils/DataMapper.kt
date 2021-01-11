@@ -18,8 +18,8 @@ object DataMapper {
         url, author, content, description, publishedAt, source.name, title, urlToImage
     )
 
-    fun ArticleResponse.mapToNewsEntity() = NewsEntity(
-        url, author, content, description, publishedAt, source.name, title, urlToImage
+    fun ArticleResponse.mapToNewsEntity(qSearch: String) = NewsEntity(
+        url, author, content, description, publishedAt, source.name, title, urlToImage, qSearch
     )
 
     fun NewsDomain.mapToNews() = News(

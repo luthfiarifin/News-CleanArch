@@ -11,5 +11,5 @@ interface INewsRepository {
 
     fun getTopHeadline(): Flow<Resource<List<NewsDomain>>>
 
-    fun getSearch(page: Int, q: String?): Flow<Resource<List<NewsDomain>>>
+    fun getSearch(page: Int, q: String): Flow<Resource<List<NewsDomain>>>
 }

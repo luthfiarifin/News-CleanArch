@@ -15,6 +15,6 @@ class NewsInteractor @Inject constructor(private val newsRepository: INewsReposi
     override fun getTopHeadline(): Flow<Resource<List<NewsDomain>>> =
         newsRepository.getTopHeadline()
 
-    override fun getSearch(page: Int, q: String?): Flow<Resource<List<NewsDomain>>> =
+    override fun getSearch(page: Int, q: String): Flow<Resource<List<NewsDomain>>> =
         newsRepository.getSearch(page, q)
 }
