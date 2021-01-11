@@ -2,7 +2,6 @@ package com.laam.core.data.source.local
 
 import com.laam.core.data.source.local.entity.NewsEntity
 import com.laam.core.data.source.local.room.NewsDao
-import com.laam.core.data.source.remote.response.ArticleResponse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,7 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class LocalDataSource @Inject constructor(private val newsDao: NewsDao) {
 
-    fun getAllNews(): Flow<List<NewsEntity>> = newsDao.getAllNews()
+    fun getAllNews(qSearch: String): Flow<List<NewsEntity>> = newsDao.getAllNews(qSearch)
 
     suspend fun insertNews(news: List<NewsEntity>) = newsDao.insertNews(news)
 }

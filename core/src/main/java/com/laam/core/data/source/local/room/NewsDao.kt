@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NewsDao {
 
-    @Query("SELECT * FROM ${NewsDatabase.NEWS_COLUMN_NAME}")
-    fun getAllNews(): Flow<List<NewsEntity>>
+    @Query("SELECT * FROM ${NewsDatabase.NEWS_COLUMN_NAME} WHERE qSearch = :qSearch ORDER BY publishedAt")
+    fun getAllNews(qSearch: String): Flow<List<NewsEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNews(newsEntity: List<NewsEntity>)
