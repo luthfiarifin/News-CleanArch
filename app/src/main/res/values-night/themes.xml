@@ -13,4 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.NewsCleanArch.Toolbar" parent="Theme.NewsCleanArch">
+        <item name="fontFamily">@font/poppins_semi_bold</item>
+    </style>
 </resources>
