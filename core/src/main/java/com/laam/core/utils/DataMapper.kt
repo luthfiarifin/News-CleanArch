@@ -14,6 +14,10 @@ object DataMapper {
         url, author, content, description, publishedAt, source, title, urlToImage
     )
 
+    fun ArticleResponse.mapToNewsDomain() = NewsDomain(
+        url, author, content, description, publishedAt, source.name, title, urlToImage
+    )
+
     fun ArticleResponse.mapToNewsEntity() = NewsEntity(
         url, author, content, description, publishedAt, source.name, title, urlToImage
     )
