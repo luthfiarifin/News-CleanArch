@@ -28,8 +28,8 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/news_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/flight"
-                app:imageUrl="@{data.urlToImage}" />
+                app:imageUrl="@{data.urlToImage}"
+                tools:src="@drawable/flight" />
         </androidx.cardview.widget.CardView>
 
         <TextView
