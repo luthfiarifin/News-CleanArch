@@ -68,9 +68,12 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
                 is Resource.Success -> {
                     val newsList = news.data?.map { it.mapToNews() }
                     rvListAdapter.submitList(newsList)
+                    startShimmer(false)
+                    viewModel.isLoading.set(false)
                 }
                 is Resource.Error -> {
-
+                    startShimmer(false)
+                    viewModel.isLoading.set(false)
                 }
             }
         })
@@ -78,5 +81,20 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
 
     private fun onNewsListClick(news: News) {
         Toast.makeText(context, news.title, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startShimmer()
+    }
+
+    override fun onPause() {
+        startShimmer(false)
+        super.onPause()
+    }
+
+    private fun startShimmer(isStart: Boolean = true) {
+        if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
+        else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
     }
 }
