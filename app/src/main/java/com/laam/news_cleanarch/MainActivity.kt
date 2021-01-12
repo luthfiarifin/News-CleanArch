@@ -20,6 +20,6 @@ class MainActivity : AppCompatActivity() {
         viewBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        setSupportActionBar(viewBinding.toolbar)
+        setSupportActionBar(viewBinding.appToolbar.toolbar)
     }
 }

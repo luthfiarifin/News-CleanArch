@@ -16,5 +16,6 @@
 
     <style name="Theme.NewsCleanArch.Toolbar" parent="Theme.NewsCleanArch">
         <item name="fontFamily">@font/poppins_semi_bold</item>
+        <item name="background">@color/white</item>
     </style>
 </resources>
