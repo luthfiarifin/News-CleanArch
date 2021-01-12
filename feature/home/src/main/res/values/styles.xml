@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="tab_text" parent="TextAppearance.AppCompat.Button">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+</resources>

@@ -1,0 +1,21 @@
+dependencies {
+    // Design
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.cardview:cardview:$cardview_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "com.google.android.material:material:$material_version"
+
+    // Coil
+    implementation "io.coil-kt:coil:$coil_version"
+
+    implementation "androidx.activity:activity-ktx:$activity_ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    // Navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Shimmer
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+}

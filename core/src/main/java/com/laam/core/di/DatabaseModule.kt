@@ -2,6 +2,7 @@ package com.laam.core.di
 
 import android.content.Context
 import androidx.room.Room
+import com.laam.core.data.source.local.room.NewsDao
 import com.laam.core.data.source.local.room.NewsDatabase
 import dagger.Module
 import dagger.Provides
@@ -24,4 +25,7 @@ class DatabaseModule {
         NewsDatabase::class.java,
         NewsDatabase.DB_NAME
     ).fallbackToDestructiveMigration().build()
+
+    @Provides
+    fun provideNewsDao(database: NewsDatabase): NewsDao = database.newsDao()
 }

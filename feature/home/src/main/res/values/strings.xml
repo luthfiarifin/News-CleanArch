@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="top_headline_image">Top headline image</string>
+    <string name="top_headline">Top headline</string>
+    <string name="dot">•</string>
+    <string name="news_image">News image</string>
+</resources>
