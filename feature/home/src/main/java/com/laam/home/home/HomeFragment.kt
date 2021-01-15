@@ -1,8 +1,14 @@
 package com.laam.home.home
 
+import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.laam.base.BaseFragment
 import com.laam.core.data.Resource
@@ -31,10 +37,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpToolbar()
         setUpBinding()
         setUpAdapter()
         observeTopHeadline()
         setUpViewPager()
+    }
+
+    private fun setUpToolbar() {
+        (activity as AppCompatActivity?)?.supportActionBar?.apply {
+            title = context?.getString(R.string.app_name)
+
+            setHasOptionsMenu(true)
+            setDisplayHomeAsUpEnabled(false)
+            setDisplayShowHomeEnabled(false)
+        }
     }
 
     private fun setUpBinding() {
@@ -103,5 +120,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun startShimmer(isStart: Boolean = true) {
         if (isStart) viewBinding.placeholderTopHeadline.shimmer.startShimmer()
         else viewBinding.placeholderTopHeadline.shimmer.stopShimmer()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.menu_home, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.searchMenu -> {
+                navigateToSearchFragment()
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    private fun navigateToSearchFragment() {
+        val uri = Uri.parse("newsApp://searchFragment")
+        findNavController().navigate(uri)
     }
 }
