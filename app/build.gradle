@@ -20,6 +20,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -47,6 +48,7 @@ dependencies {
     implementation project(":core")
     implementation project(":feature:base")
     implementation project(":feature:home")
+    implementation project(":feature:search")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
