@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">News App</string>
+    <string name="dot">•</string>
+    <string name="news_image">News image</string>
+    <string name="search">Search</string>
+</resources>
