@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.laam.base.BaseFragment
+import com.laam.base.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
