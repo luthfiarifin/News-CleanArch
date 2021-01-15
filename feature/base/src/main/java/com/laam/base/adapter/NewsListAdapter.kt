@@ -1,4 +1,4 @@
-package com.laam.home.home.list
+package com.laam.base.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.laam.core.presentation.model.News
-import com.laam.home.R
-import com.laam.home.databinding.ItemNewsListBinding
+import com.laam.base.R
+import com.laam.base.databinding.ItemNewsListBinding
 
 /**
  * Created by luthfiarifin on 1/10/2021.
