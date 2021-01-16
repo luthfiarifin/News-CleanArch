@@ -67,6 +67,8 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
         viewModel.newsEverything().observe(viewLifecycleOwner, { news ->
             when (news) {
                 is Resource.Loading -> {
+                    startShimmer()
+                    viewModel.isLoading.set(true)
                 }
                 is Resource.Success -> {
                     val newsList = news.data?.map { it.mapToNews() }
