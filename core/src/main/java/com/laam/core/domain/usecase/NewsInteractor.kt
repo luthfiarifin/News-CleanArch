@@ -17,4 +17,6 @@ class NewsInteractor @Inject constructor(private val newsRepository: INewsReposi
 
     override fun getSearch(page: Int, q: String): Flow<Resource<List<NewsDomain>>> =
         newsRepository.getSearch(page, q)
+
+    override fun isNewsFavorite(url: String): Flow<Boolean> = newsRepository.isNewsFavorite(url)
 }

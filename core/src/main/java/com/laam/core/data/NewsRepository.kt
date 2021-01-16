@@ -9,6 +9,8 @@ import com.laam.core.domain.repository.INewsRepository
 import com.laam.core.utils.DataMapper.mapToNewsDomain
 import com.laam.core.utils.DataMapper.mapToNewsEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -47,4 +49,8 @@ class NewsRepository @Inject constructor(
                 localDataSource.insertNews(newsEntities)
             }
         }.asFlow()
+
+    override fun isNewsFavorite(url: String): Flow<Boolean> = flow {
+        emit(localDataSource.getNewsFavorite(url).first() != null)
+    }
 }
