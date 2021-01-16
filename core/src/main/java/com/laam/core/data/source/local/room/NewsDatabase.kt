@@ -14,6 +14,6 @@ abstract class NewsDatabase : RoomDatabase() {
 
     companion object {
         const val DB_NAME = "News.db"
-        const val NEWS_COLUMN_NAME = "news"
+        const val NEWS_TABLE_NAME = "news"
     }
 }
