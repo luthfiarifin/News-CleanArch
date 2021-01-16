@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NewsDao {
 
-    @Query("SELECT * FROM ${NewsDatabase.NEWS_COLUMN_NAME} WHERE qSearch = :qSearch ORDER BY publishedAt")
+    @Query("SELECT * FROM ${NewsDatabase.NEWS_COLUMN_NAME} WHERE qSearch = :qSearch ORDER BY publishedAt DESC")
     fun getAllNews(qSearch: String): Flow<List<NewsEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
