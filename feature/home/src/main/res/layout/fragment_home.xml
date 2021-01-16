@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.laam.home.home.HomeViewModel" />
+            type="com.laam.home.HomeViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

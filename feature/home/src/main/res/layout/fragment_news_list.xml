@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.laam.home.home.list.NewsListViewModel" />
+            type="com.laam.home.list.NewsListViewModel" />
     </data>
 
 

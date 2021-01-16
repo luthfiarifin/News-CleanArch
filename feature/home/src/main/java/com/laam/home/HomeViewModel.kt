@@ -1,4 +1,4 @@
-package com.laam.home.home
+package com.laam.home
 
 import androidx.databinding.ObservableBoolean
 import androidx.hilt.lifecycle.ViewModelInject

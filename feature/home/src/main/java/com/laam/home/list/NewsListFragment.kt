@@ -1,4 +1,4 @@
-package com.laam.home.home.list
+package com.laam.home.list
 
 import android.os.Bundle
 import android.view.View

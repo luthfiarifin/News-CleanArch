@@ -1,4 +1,4 @@
-package com.laam.home.home
+package com.laam.home
 
 import android.net.Uri
 import android.os.Bundle
@@ -14,7 +14,6 @@ import com.laam.base.BaseFragment
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
-import com.laam.home.R
 import com.laam.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
