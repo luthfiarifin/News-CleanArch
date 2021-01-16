@@ -2,6 +2,7 @@ package com.laam.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -34,4 +35,12 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : androidx.
     abstract fun getViewModelClass(): Class<ViewModel>
 
     abstract fun getLayoutId(): Int
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            activity?.onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

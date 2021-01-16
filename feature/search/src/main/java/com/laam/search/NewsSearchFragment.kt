@@ -1,7 +1,6 @@
 package com.laam.search
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
@@ -111,13 +110,5 @@ class NewsSearchFragment : BaseFragment<FragmentNewsSearchBinding, NewsSearchVie
     private fun startShimmer(isStart: Boolean = true) {
         if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
         else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            activity?.onBackPressed()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
