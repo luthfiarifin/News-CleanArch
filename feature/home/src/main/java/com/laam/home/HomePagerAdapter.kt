@@ -1,9 +1,9 @@
-package com.laam.home.home
+package com.laam.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.laam.home.home.list.NewsListFragment
+import com.laam.home.list.NewsListFragment
 
 /**
  * Created by luthfiarifin on 1/10/2021.

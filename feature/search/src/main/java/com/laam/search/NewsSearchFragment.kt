@@ -1,25 +1,28 @@
-package com.laam.home.home.list
+package com.laam.search
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.laam.base.BaseFragment
+import com.laam.base.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
-import com.laam.home.R
-import com.laam.home.databinding.FragmentNewsListBinding
+import com.laam.search.databinding.FragmentNewsSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * Created by luthfiarifin on 1/10/2021.
+ * Created by luthfiarifin on 1/12/2021.
  */
 @AndroidEntryPoint
-class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel>() {
+class NewsSearchFragment : BaseFragment<FragmentNewsSearchBinding, NewsSearchViewModel>() {
 
-    override fun getViewModelClass(): Class<NewsListViewModel> = NewsListViewModel::class.java
+    override fun getViewModelClass(): Class<NewsSearchViewModel> = NewsSearchViewModel::class.java
 
-    override fun getLayoutId(): Int = R.layout.fragment_news_list
+    override fun getLayoutId(): Int = R.layout.fragment_news_search
 
     private val rvListAdapter by lazy {
         NewsListAdapter { news ->
@@ -27,27 +30,38 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
         }
     }
 
-    companion object {
-        private const val ARG_CATEGORY = "arg_category"
-
-        fun newInstance(category: String) = NewsListFragment().apply {
-            arguments = Bundle().apply {
-                putString(ARG_CATEGORY, category)
-            }
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpVariable()
+        setUpToolbar()
         setUpBinding()
         setUpAdapter()
-        observeNews()
+        setUpSearch()
     }
 
-    private fun setUpVariable() {
-        arguments?.let { viewModel.category = it.getString(ARG_CATEGORY) ?: "" }
+    private fun setUpToolbar() {
+        (activity as AppCompatActivity?)?.supportActionBar?.apply {
+            title = context?.getString(R.string.search)
+
+            setHasOptionsMenu(true)
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    private fun setUpSearch() {
+        viewBinding.searchView.setOnEditorActionListener { _, i, _ ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                viewBinding.searchView.clearFocus()
+                onSearch()
+                true
+            } else false
+        }
+    }
+
+    private fun onSearch() {
+        viewModel.qSearch = viewBinding.searchView.text.toString()
+        observeNews()
     }
 
     private fun setUpBinding() {
@@ -55,7 +69,7 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
     }
 
     private fun setUpAdapter() {
-        with (viewBinding.rvList) {
+        with(viewBinding.rvList) {
             adapter = rvListAdapter
         }
     }
@@ -64,6 +78,7 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
         viewModel.newsEverything().observe(viewLifecycleOwner, { news ->
             when (news) {
                 is Resource.Loading -> {
+                    viewModel.isLoading.set(true)
                 }
                 is Resource.Success -> {
                     val newsList = news.data?.map { it.mapToNews() }
@@ -96,5 +111,13 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
     private fun startShimmer(isStart: Boolean = true) {
         if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
         else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            activity?.onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

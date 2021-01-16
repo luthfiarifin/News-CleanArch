@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_search"
+    app:startDestination="@id/newsSearchFragment">
+
+    <fragment
+        android:id="@+id/newsSearchFragment"
+        android:name="com.laam.search.NewsSearchFragment"
+        android:label="NewsSearchFragment">
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="newsApp://searchFragment" />
+    </fragment>
+</navigation>

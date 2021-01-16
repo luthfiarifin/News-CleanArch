@@ -1,4 +1,4 @@
-package com.laam.home.home.list
+package com.laam.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,20 +7,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.laam.core.presentation.model.News
-import com.laam.home.R
-import com.laam.home.databinding.ItemNewsListBinding
+import com.laam.home.databinding.ItemNewsTopHeadlineBinding
 
 /**
  * Created by luthfiarifin on 1/10/2021.
  */
-class NewsListAdapter(private val callback: (News) -> Unit) :
-    ListAdapter<News, NewsListAdapter.ViewHolder>(DIFF_CALLBACK)  {
+class TopHeadlineAdapter(private val callback: (News) -> Unit) :
+    ListAdapter<News, TopHeadlineAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.item_news_list,
+                R.layout.item_news_top_headline,
                 parent,
                 false
             )
@@ -31,7 +30,7 @@ class NewsListAdapter(private val callback: (News) -> Unit) :
         holder.bind(getItem(position))
     }
 
-    inner class ViewHolder(private val binding: ItemNewsListBinding) :
+    inner class ViewHolder(private val binding: ItemNewsTopHeadlineBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(news: News) {
