@@ -49,6 +49,7 @@ dependencies {
     implementation project(":feature:base")
     implementation project(":feature:home")
     implementation project(":feature:search")
+    implementation project(":feature:detail")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
