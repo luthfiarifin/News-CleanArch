@@ -2,16 +2,22 @@ package com.laam.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.laam.base.BaseFragment
 import com.laam.detail.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by luthfiarifin on 1/16/2021.
  */
+@AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
 
     override fun getViewModelClass(): Class<DetailViewModel> = DetailViewModel::class.java
@@ -63,5 +69,29 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
             }
             setWebViewClient(webViewClient)
         }
+    }
+
+    private fun observeIsNewsFavorite(item: MenuItem?) {
+        viewModel.isNewsFavorite.observe(viewLifecycleOwner, { isFavorite ->
+            activity?.let {
+                item?.icon = if (isFavorite) {
+                    ContextCompat.getDrawable(it, R.drawable.ic_favorite_active)
+                } else {
+                    ContextCompat.getDrawable(it, R.drawable.ic_favorite_not_active)
+                }
+            }
+        })
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+
+        observeIsNewsFavorite(menu.findItem(R.id.item_favorite))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.menu_detail, menu)
     }
 }
