@@ -1,7 +1,13 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
+
+apply from: '../../shared_feature_dependencies.gradle'
+apply from: '../../shared_dependencies.gradle'
 
 android {
     compileSdkVersion 30
@@ -33,12 +39,8 @@ android {
 }
 
 dependencies {
+    implementation project(":core")
+    implementation project(":feature:base")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
