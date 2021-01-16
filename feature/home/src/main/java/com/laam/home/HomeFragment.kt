@@ -83,7 +83,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun onTopHeadlineOnClick(news: News) {
-        Toast.makeText(context, news.title, Toast.LENGTH_SHORT).show()
+        navigateToDetailFragment(news)
     }
 
     private fun observeTopHeadline() {
@@ -141,6 +141,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private fun navigateToSearchFragment() {
         val uri = Uri.parse("newsApp://searchFragment")
+        findNavController().navigate(uri)
+    }
+
+    private fun navigateToDetailFragment(news: News) {
+        val uri = Uri.parse("newsApp://detailFragment/${news.url}")
         findNavController().navigate(uri)
     }
 }

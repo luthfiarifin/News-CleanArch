@@ -1,8 +1,10 @@
 package com.laam.home.list
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.laam.base.BaseFragment
 import com.laam.base.adapter.NewsListAdapter
 import com.laam.core.data.Resource
@@ -65,6 +67,8 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
         viewModel.newsEverything().observe(viewLifecycleOwner, { news ->
             when (news) {
                 is Resource.Loading -> {
+                    startShimmer()
+                    viewModel.isLoading.set(true)
                 }
                 is Resource.Success -> {
                     val newsList = news.data?.map { it.mapToNews() }
@@ -81,7 +85,7 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
     }
 
     private fun onNewsListClick(news: News) {
-        Toast.makeText(context, news.title, Toast.LENGTH_SHORT).show()
+        navigateToDetailFragment(news)
     }
 
     override fun onResume() {
@@ -97,5 +101,10 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel
     private fun startShimmer(isStart: Boolean = true) {
         if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
         else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
+    }
+
+    private fun navigateToDetailFragment(news: News) {
+        val uri = Uri.parse("newsApp://detailFragment/${news.url}")
+        findNavController().navigate(uri)
     }
 }
