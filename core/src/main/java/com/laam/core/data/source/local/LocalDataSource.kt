@@ -23,4 +23,7 @@ class LocalDataSource @Inject constructor(
 
     fun getNewsFavorite(url: String): Flow<NewsFavoriteEntity?> =
         newsFavoriteDao.getNewsFavorite(url)
+
+    suspend fun insertNewsFavorite(newsFavorite: NewsFavoriteEntity): Long =
+        newsFavoriteDao.insertNewsFavorite(newsFavorite)
 }

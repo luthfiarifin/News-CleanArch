@@ -1,6 +1,8 @@
 package com.laam.core.data.source.local.room
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.laam.core.data.source.local.entity.NewsFavoriteEntity
 import kotlinx.coroutines.flow.Flow
@@ -13,4 +15,7 @@ interface NewsFavoriteDao {
 
     @Query("SELECT * FROM ${NewsDatabase.NEWS_FAVORITE_TABLE_NAME} WHERE url = :url")
     fun getNewsFavorite(url: String): Flow<NewsFavoriteEntity?>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertNewsFavorite(newsEntity: NewsFavoriteEntity): Long
 }
