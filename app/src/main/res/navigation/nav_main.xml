@@ -9,4 +9,10 @@
     <include app:graph="@navigation/nav_search" />
 
     <include app:graph="@navigation/nav_detail" />
+
+    <include-dynamic
+        android:id="@+id/includedGraph"
+        app:graphPackage="com.laam.news_cleanarch.favorite"
+        app:graphResName="nav_favorite"
+        app:moduleName="favorite" />
 </navigation>
