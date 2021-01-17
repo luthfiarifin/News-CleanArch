@@ -11,7 +11,10 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.laam.base.BaseFragment
+import com.laam.base.ext.SnackBarUtil.showSnackBar
+import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.presentation.model.News
+import com.laam.core.utils.DataMapper.toNewsFavoriteDomain
 import com.laam.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,6 +28,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
 
     override fun getLayoutId(): Int = R.layout.fragment_detail
 
+    private lateinit var itemFavorite: MenuItem
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -32,6 +37,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
         setUpViewBinding()
         setUpVariable()
         setUpWebView()
+        observeIsNewsFavorite()
+    }
+
+    private fun observeIsNewsFavorite() {
+        viewModel.isNewsFavorite.observe(viewLifecycleOwner) { setIconFavorite(it) }
     }
 
     private fun setUpToolbar() {
@@ -75,27 +85,55 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
         }
     }
 
-    private fun observeIsNewsFavorite(item: MenuItem?) {
-        viewModel.isNewsFavorite.observe(viewLifecycleOwner, { isFavorite ->
-            activity?.let {
-                item?.icon = if (isFavorite) {
-                    ContextCompat.getDrawable(it, R.drawable.ic_favorite_active)
-                } else {
-                    ContextCompat.getDrawable(it, R.drawable.ic_favorite_not_active)
-                }
+    private fun setIconFavorite(isFavorite: Boolean?) {
+        activity?.let {
+            itemFavorite.icon = if (isFavorite == true) {
+                ContextCompat.getDrawable(it, R.drawable.ic_favorite_active)
+            } else {
+                ContextCompat.getDrawable(it, R.drawable.ic_favorite_not_active)
             }
-        })
+        }
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
 
-        observeIsNewsFavorite(menu.findItem(R.id.item_favorite))
+        itemFavorite = menu.findItem(R.id.item_favorite)
+        getIsNewsFavorite()
+    }
+
+    private fun getIsNewsFavorite() {
+        viewModel.getIsNewsFavorite()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
         inflater.inflate(R.menu.menu_detail, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_favorite -> {
+                setOnFavoriteClick()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun setOnFavoriteClick() {
+        if (viewModel.isNewsFavorite.value == false) {
+            viewModel.news?.toNewsFavoriteDomain()?.let { insertNewsFavorite(it) }
+        } else {
+            // TODO: add delete favorite
+        }
+    }
+
+    private fun insertNewsFavorite(it: NewsFavoriteDomain) {
+        viewModel.insertNewsFavorite(it).observe(viewLifecycleOwner) {
+            view?.showSnackBar("Add to favorite success")
+            viewModel.setIsNewsFavorite(true)
+        }
     }
 }
