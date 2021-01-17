@@ -59,4 +59,8 @@ class NewsRepository @Inject constructor(
     override fun insertNewsFavorite(newsFavoriteDomain: NewsFavoriteDomain): Flow<Long> = flow {
         emit(localDataSource.insertNewsFavorite(newsFavoriteDomain.mapTopNewsFavoriteEntity()))
     }
+
+    override fun deleteNewsFavorite(url: String): Flow<Int> = flow {
+        emit(localDataSource.deleteNewsFavorite(url))
+    }
 }

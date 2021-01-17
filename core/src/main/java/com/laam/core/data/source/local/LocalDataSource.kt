@@ -26,4 +26,7 @@ class LocalDataSource @Inject constructor(
 
     suspend fun insertNewsFavorite(newsFavorite: NewsFavoriteEntity): Long =
         newsFavoriteDao.insertNewsFavorite(newsFavorite)
+
+    suspend fun deleteNewsFavorite(url: String): Int =
+        newsFavoriteDao.deleteNewsFavorite(url)
 }
