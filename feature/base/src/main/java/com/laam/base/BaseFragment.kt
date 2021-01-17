@@ -8,16 +8,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 
 /**
  * Created by luthfiarifin on 1/8/2021.
  */
-abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : androidx.lifecycle.ViewModel> : Fragment() {
+abstract class BaseFragment<ViewBinding : ViewDataBinding> : Fragment() {
 
     private lateinit var mViewBinding: ViewBinding
-
-    val viewModel: ViewModel by lazy { ViewModelProvider(this).get(getViewModelClass()) }
 
     val viewBinding
         get() = mViewBinding
@@ -31,8 +28,6 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : androidx.
 
         return mViewBinding.root
     }
-
-    abstract fun getViewModelClass(): Class<ViewModel>
 
     abstract fun getLayoutId(): Int
 
