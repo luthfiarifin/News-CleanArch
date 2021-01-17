@@ -6,7 +6,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
-import com.laam.base.BaseFragment
+import com.laam.base.BaseFragmentVm
 import com.laam.base.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Created by luthfiarifin on 1/12/2021.
  */
 @AndroidEntryPoint
-class NewsSearchFragment : BaseFragment<FragmentNewsSearchBinding, NewsSearchViewModel>() {
+class NewsSearchFragment : BaseFragmentVm<FragmentNewsSearchBinding, NewsSearchViewModel>() {
 
     override fun getViewModelClass(): Class<NewsSearchViewModel> = NewsSearchViewModel::class.java
 

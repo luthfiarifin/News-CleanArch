@@ -10,7 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.laam.base.BaseFragment
+import com.laam.base.BaseFragmentVm
 import com.laam.base.ext.SnackBarUtil.showSnackBar
 import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.presentation.model.News
@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Created by luthfiarifin on 1/16/2021.
  */
 @AndroidEntryPoint
-class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
+class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() {
 
     override fun getViewModelClass(): Class<DetailViewModel> = DetailViewModel::class.java
 

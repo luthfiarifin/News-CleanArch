@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
-import com.laam.base.BaseFragment
+import com.laam.base.BaseFragmentVm
 import com.laam.base.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Created by luthfiarifin on 1/10/2021.
  */
 @AndroidEntryPoint
-class NewsListFragment : BaseFragment<FragmentNewsListBinding, NewsListViewModel>() {
+class NewsListFragment : BaseFragmentVm<FragmentNewsListBinding, NewsListViewModel>() {
 
     override fun getViewModelClass(): Class<NewsListViewModel> = NewsListViewModel::class.java
 

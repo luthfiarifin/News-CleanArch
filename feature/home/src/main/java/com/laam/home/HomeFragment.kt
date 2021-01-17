@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
-import com.laam.base.BaseFragment
+import com.laam.base.BaseFragmentVm
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Created by luthfiarifin on 1/8/2021.
  */
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
 
     private val rvTopHeadLineAdapter by lazy {
         TopHeadlineAdapter { news ->
