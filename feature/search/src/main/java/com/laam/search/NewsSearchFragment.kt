@@ -1,11 +1,10 @@
 package com.laam.search
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.laam.base.BaseFragment
 import com.laam.base.adapter.NewsListAdapter
@@ -115,7 +114,7 @@ class NewsSearchFragment : BaseFragment<FragmentNewsSearchBinding, NewsSearchVie
     }
 
     private fun navigateToDetailFragment(news: News) {
-        val uri = Uri.parse("newsApp://detailFragment/${news.url}")
-        findNavController().navigate(uri)
+        val bundle = bundleOf("news" to news)
+        findNavController().navigate(R.id.detail_nav_graph, bundle)
     }
 }

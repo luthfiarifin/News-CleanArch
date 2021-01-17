@@ -1,13 +1,12 @@
 package com.laam.home
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.laam.base.BaseFragment
@@ -140,12 +139,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun navigateToSearchFragment() {
-        val uri = Uri.parse("newsApp://searchFragment")
-        findNavController().navigate(uri)
+        findNavController().navigate(R.id.search_nav_graph)
     }
 
     private fun navigateToDetailFragment(news: News) {
-        val uri = Uri.parse("newsApp://detailFragment/${news.url}")
-        findNavController().navigate(uri)
+        val bundle = bundleOf("news" to news)
+        findNavController().navigate(R.id.detail_nav_graph, bundle)
     }
 }

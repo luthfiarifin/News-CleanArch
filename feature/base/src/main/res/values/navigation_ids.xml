@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="home_nav_graph" type="id" />
+    <item name="search_nav_graph" type="id" />
+    <item name="detail_nav_graph" type="id" />
+</resources>

@@ -11,6 +11,7 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.laam.base.BaseFragment
+import com.laam.core.presentation.model.News
 import com.laam.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,13 +49,16 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
     }
 
     private fun setUpVariable() {
-        arguments?.let { viewModel.newsUrl = it.getString("url") }
+        arguments?.let {
+            val news = it.getParcelable<News>("news")
+            viewModel.news = news
+        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setUpWebView() {
         with(viewBinding.webView) {
-            viewModel.newsUrl?.let { loadUrl(it) }
+            viewModel.news?.let { loadUrl(it.url) }
 
             settings.let { webSetting ->
                 webSetting.javaScriptEnabled = true
