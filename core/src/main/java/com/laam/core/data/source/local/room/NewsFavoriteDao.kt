@@ -13,6 +13,9 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NewsFavoriteDao {
 
+    @Query("SELECT * FROM ${NewsDatabase.NEWS_FAVORITE_TABLE_NAME}")
+    fun getAllNewsFavorite(): Flow<List<NewsFavoriteEntity>>
+
     @Query("SELECT * FROM ${NewsDatabase.NEWS_FAVORITE_TABLE_NAME} WHERE url = :url")
     fun getNewsFavorite(url: String): Flow<NewsFavoriteEntity?>
 

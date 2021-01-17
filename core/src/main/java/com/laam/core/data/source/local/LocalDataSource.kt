@@ -21,6 +21,9 @@ class LocalDataSource @Inject constructor(
 
     suspend fun insertNews(news: List<NewsEntity>) = newsDao.insertNews(news)
 
+    fun getAllNewsFavorite(): Flow<List<NewsFavoriteEntity>> =
+        newsFavoriteDao.getAllNewsFavorite()
+
     fun getNewsFavorite(url: String): Flow<NewsFavoriteEntity?> =
         newsFavoriteDao.getNewsFavorite(url)
 

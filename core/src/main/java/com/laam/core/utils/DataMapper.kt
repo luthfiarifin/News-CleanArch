@@ -28,7 +28,15 @@ object DataMapper {
         url, content, publishedAt, source, title, urlToImage
     )
 
-    fun NewsFavoriteDomain.mapTopNewsFavoriteEntity() = NewsFavoriteEntity(
+    fun NewsFavoriteDomain.mapToNewsFavoriteEntity() = NewsFavoriteEntity(
+        url, content, publishedAt, source, title, urlToImage
+    )
+
+    fun NewsFavoriteDomain.mapToNews() = News(
+        url, content, publishedAt, source, title, urlToImage
+    )
+
+    fun NewsFavoriteEntity.mapTopNewsFavoriteDomain() = NewsFavoriteDomain(
         url, content, publishedAt, source, title, urlToImage
     )
 

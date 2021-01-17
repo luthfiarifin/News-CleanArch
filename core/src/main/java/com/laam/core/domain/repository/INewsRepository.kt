@@ -19,4 +19,6 @@ interface INewsRepository {
     fun insertNewsFavorite(newsFavoriteDomain: NewsFavoriteDomain): Flow<Long>
 
     fun deleteNewsFavorite(url: String): Flow<Int>
+
+    fun getAllNewsFavorite(): Flow<List<NewsFavoriteDomain>>
 }

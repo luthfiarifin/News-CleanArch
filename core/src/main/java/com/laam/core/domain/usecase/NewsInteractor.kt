@@ -26,4 +26,7 @@ class NewsInteractor @Inject constructor(private val newsRepository: INewsReposi
 
     override fun deleteNewsFavorite(url: String): Flow<Int> =
         newsRepository.deleteNewsFavorite(url)
+
+    override fun getAllNewsFavorite(): Flow<List<NewsFavoriteDomain>> =
+        newsRepository.getAllNewsFavorite()
 }

@@ -9,7 +9,8 @@ import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.domain.repository.INewsRepository
 import com.laam.core.utils.DataMapper.mapToNewsDomain
 import com.laam.core.utils.DataMapper.mapToNewsEntity
-import com.laam.core.utils.DataMapper.mapTopNewsFavoriteEntity
+import com.laam.core.utils.DataMapper.mapTopNewsFavoriteDomain
+import com.laam.core.utils.DataMapper.mapToNewsFavoriteEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
@@ -57,10 +58,14 @@ class NewsRepository @Inject constructor(
     }
 
     override fun insertNewsFavorite(newsFavoriteDomain: NewsFavoriteDomain): Flow<Long> = flow {
-        emit(localDataSource.insertNewsFavorite(newsFavoriteDomain.mapTopNewsFavoriteEntity()))
+        emit(localDataSource.insertNewsFavorite(newsFavoriteDomain.mapToNewsFavoriteEntity()))
     }
 
     override fun deleteNewsFavorite(url: String): Flow<Int> = flow {
         emit(localDataSource.deleteNewsFavorite(url))
     }
+
+    override fun getAllNewsFavorite(): Flow<List<NewsFavoriteDomain>> =
+        localDataSource.getAllNewsFavorite()
+            .map { it.map { entity -> entity.mapTopNewsFavoriteDomain() } }
 }
