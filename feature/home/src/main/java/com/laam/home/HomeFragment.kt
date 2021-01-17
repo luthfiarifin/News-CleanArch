@@ -132,10 +132,18 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
                 navigateToSearchFragment()
                 true
             }
+            R.id.favoriteMenu -> {
+                navigateToFavoriteFragment()
+                true
+            }
             else -> {
                 super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    private fun navigateToFavoriteFragment() {
+        findNavController().navigate(R.id.includedGraph)
     }
 
     private fun navigateToSearchFragment() {

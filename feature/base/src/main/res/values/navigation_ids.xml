@@ -3,4 +3,5 @@
     <item name="home_nav_graph" type="id" />
     <item name="search_nav_graph" type="id" />
     <item name="detail_nav_graph" type="id" />
+    <item name="includedGraph" type="id" />
 </resources>
