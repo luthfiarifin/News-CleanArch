@@ -29,6 +29,9 @@ class DetailViewModel @ViewModelInject constructor(
     fun insertNewsFavorite(newsFavoriteDomain: NewsFavoriteDomain) =
         newsUseCase.insertNewsFavorite(newsFavoriteDomain).asLiveData()
 
+    fun deleteNewsFavorite() =
+        newsUseCase.deleteNewsFavorite(news?.url ?: "").asLiveData()
+
     fun getIsNewsFavorite() {
         viewModelScope.launch {
             newsUseCase.isNewsFavorite(news?.url ?: "").collect { _isNewsFavorite.postValue(it) }

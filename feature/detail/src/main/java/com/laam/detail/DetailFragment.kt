@@ -126,7 +126,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding, DetailViewModel>() {
         if (viewModel.isNewsFavorite.value == false) {
             viewModel.news?.toNewsFavoriteDomain()?.let { insertNewsFavorite(it) }
         } else {
-            // TODO: add delete favorite
+            deleteNewsFavorite()
+        }
+    }
+
+    private fun deleteNewsFavorite() {
+        viewModel.deleteNewsFavorite().observe(viewLifecycleOwner) {
+            view?.showSnackBar("Delete to favorite success")
+            viewModel.setIsNewsFavorite(false)
         }
     }
 
