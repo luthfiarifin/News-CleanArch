@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:moduleName="favorite"
+    app:startDestination="@id/favoriteListFragment">
+
+    <fragment
+        android:id="@+id/favoriteListFragment"
+        android:name="com.laam.news_cleanarch.favorite.FavoriteListFragment"
+        android:label="FavoriteListFragment" />
+</navigation>
