@@ -2,6 +2,7 @@ package com.laam.news_cleanarch.favorite
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -42,9 +43,20 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpToolbar()
         setUpBinding()
         setUpAdapter()
         observeNews()
+    }
+
+    private fun setUpToolbar() {
+        (activity as AppCompatActivity?)?.supportActionBar?.apply {
+            title = context?.getString(R.string.favorite)
+
+            setHasOptionsMenu(true)
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
     }
 
     private fun setUpInjection() {
