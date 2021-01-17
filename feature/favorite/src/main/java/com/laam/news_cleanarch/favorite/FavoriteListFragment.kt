@@ -51,7 +51,7 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
 
     private fun setUpToolbar() {
         (activity as AppCompatActivity?)?.supportActionBar?.apply {
-            title = context?.getString(R.string.favorite)
+            title = context?.getString(R.string.favorite_list)
 
             setHasOptionsMenu(true)
             setDisplayHomeAsUpEnabled(true)
