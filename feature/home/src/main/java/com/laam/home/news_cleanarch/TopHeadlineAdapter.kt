@@ -1,4 +1,4 @@
-package com.laam.home
+package com.laam.home.news_cleanarch
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.laam.core.presentation.model.News
-import com.laam.home.databinding.ItemNewsTopHeadlineBinding
+import com.laam.home.news_cleanarch.databinding.ItemNewsTopHeadlineBinding
 
 /**
  * Created by luthfiarifin on 1/10/2021.

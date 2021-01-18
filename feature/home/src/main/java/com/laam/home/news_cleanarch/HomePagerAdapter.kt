@@ -1,9 +1,9 @@
-package com.laam.home
+package com.laam.home.news_cleanarch
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.laam.home.list.NewsListFragment
+import com.laam.home.news_cleanarch.list.NewsListFragment
 
 /**
  * Created by luthfiarifin on 1/10/2021.
