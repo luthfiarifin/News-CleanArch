@@ -15,7 +15,7 @@ class NewsListViewModel @ViewModelInject constructor(
 
     val isLoading = ObservableBoolean(true)
 
-    var page: Int = 1
+    private var page: Int = 1
     var category: String = ""
 
     fun newsEverything() = newsUseCase.getSearch(page, category).asLiveData()
