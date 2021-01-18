@@ -1,4 +1,4 @@
-package com.laam.detail
+package com.laam.detail.news_cleanarch
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -15,7 +15,7 @@ import com.laam.base.ext.SnackBarUtil.showSnackBar
 import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.toNewsFavoriteDomain
-import com.laam.detail.databinding.FragmentDetailBinding
+import com.laam.detail.news_cleanarch.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
