@@ -1,4 +1,4 @@
-package com.laam.base
+package com.laam.base.news_cleanarch
 
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider

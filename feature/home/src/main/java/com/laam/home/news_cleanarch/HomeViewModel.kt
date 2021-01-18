@@ -3,7 +3,7 @@ package com.laam.home.news_cleanarch
 import androidx.databinding.ObservableBoolean
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.asLiveData
-import com.laam.base.BaseViewModel
+import com.laam.base.news_cleanarch.BaseViewModel
 import com.laam.core.domain.usecase.NewsUseCase
 
 /**

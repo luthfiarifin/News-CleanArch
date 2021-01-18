@@ -1,4 +1,4 @@
-package com.laam.base.ext
+package com.laam.base.news_cleanarch.ext
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar

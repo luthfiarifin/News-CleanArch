@@ -1,4 +1,4 @@
-package com.laam.base
+package com.laam.base.news_cleanarch
 
 import android.os.Bundle
 import android.view.LayoutInflater

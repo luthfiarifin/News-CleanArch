@@ -1,4 +1,4 @@
-package com.laam.base.adapter
+package com.laam.base.news_cleanarch.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.laam.core.presentation.model.News
-import com.laam.base.R
-import com.laam.base.databinding.ItemNewsListBinding
+import com.laam.base.news_cleanarch.R
+import com.laam.base.news_cleanarch.databinding.ItemNewsListBinding
 
 /**
  * Created by luthfiarifin on 1/10/2021.

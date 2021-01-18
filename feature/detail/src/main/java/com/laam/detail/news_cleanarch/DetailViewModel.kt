@@ -5,7 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.laam.base.BaseViewModel
+import com.laam.base.news_cleanarch.BaseViewModel
 import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.domain.usecase.NewsUseCase
 import com.laam.core.presentation.model.News

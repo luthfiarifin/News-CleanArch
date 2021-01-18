@@ -1,4 +1,4 @@
-package com.laam.base.ext
+package com.laam.base.news_cleanarch.ext
 
 import android.annotation.SuppressLint
 import android.text.format.DateUtils

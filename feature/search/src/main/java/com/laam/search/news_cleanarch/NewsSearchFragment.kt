@@ -6,8 +6,8 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
-import com.laam.base.BaseFragmentVm
-import com.laam.base.adapter.NewsListAdapter
+import com.laam.base.news_cleanarch.BaseFragmentVm
+import com.laam.base.news_cleanarch.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews

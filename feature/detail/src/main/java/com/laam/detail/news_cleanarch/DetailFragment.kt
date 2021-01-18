@@ -10,8 +10,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.laam.base.BaseFragmentVm
-import com.laam.base.ext.SnackBarUtil.showSnackBar
+import com.laam.base.news_cleanarch.BaseFragmentVm
+import com.laam.base.news_cleanarch.ext.SnackBarUtil.showSnackBar
 import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.toNewsFavoriteDomain
