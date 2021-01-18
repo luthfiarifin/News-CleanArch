@@ -1,4 +1,4 @@
-package com.laam.search
+package com.laam.search.news_cleanarch
 
 import androidx.databinding.ObservableBoolean
 import androidx.hilt.lifecycle.ViewModelInject

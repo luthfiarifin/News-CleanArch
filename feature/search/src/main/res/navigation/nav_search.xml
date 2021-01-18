@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/newsSearchFragment"
-        android:name="com.laam.search.NewsSearchFragment"
+        android:name="com.laam.search.news_cleanarch.NewsSearchFragment"
         android:label="NewsSearchFragment" />
 </navigation>
