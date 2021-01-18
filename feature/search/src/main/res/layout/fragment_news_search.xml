@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.laam.search.NewsSearchViewModel" />
+            type="com.laam.search.news_cleanarch.NewsSearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -2,11 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_main.xml"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/home_nav_graph">
 
     <include app:graph="@navigation/nav_home" />
 
     <include app:graph="@navigation/nav_search" />
 
     <include app:graph="@navigation/nav_detail" />
+
+    <include-dynamic
+        android:id="@+id/includedGraph"
+        app:graphPackage="com.laam.news_cleanarch.favorite"
+        app:graphResName="nav_favorite"
+        app:moduleName="favorite" />
 </navigation>

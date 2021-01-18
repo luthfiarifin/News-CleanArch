@@ -8,7 +8,7 @@ import com.laam.core.data.source.local.room.NewsDatabase
 /**
  * Created by luthfiarifin on 1/7/2021.
  */
-@Entity(tableName = NewsDatabase.NEWS_COLUMN_NAME)
+@Entity(tableName = NewsDatabase.NEWS_TABLE_NAME)
 data class NewsEntity(
     @PrimaryKey @ColumnInfo(name = "url") var url: String,
     @ColumnInfo(name = "author") var author: String?,

@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.laam.detail.DetailViewModel" />
+            type="com.laam.detail.news_cleanarch.DetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

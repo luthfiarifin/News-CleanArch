@@ -1,8 +1,10 @@
 package com.laam.core.utils
 
 import com.laam.core.data.source.local.entity.NewsEntity
+import com.laam.core.data.source.local.entity.NewsFavoriteEntity
 import com.laam.core.data.source.remote.response.ArticleResponse
 import com.laam.core.domain.model.NewsDomain
+import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.presentation.model.News
 
 /**
@@ -23,6 +25,22 @@ object DataMapper {
     )
 
     fun NewsDomain.mapToNews() = News(
+        url, content, publishedAt, source, title, urlToImage
+    )
+
+    fun NewsFavoriteDomain.mapToNewsFavoriteEntity() = NewsFavoriteEntity(
+        url, content, publishedAt, source, title, urlToImage
+    )
+
+    fun NewsFavoriteDomain.mapToNews() = News(
+        url, content, publishedAt, source, title, urlToImage
+    )
+
+    fun NewsFavoriteEntity.mapTopNewsFavoriteDomain() = NewsFavoriteDomain(
+        url, content, publishedAt, source, title, urlToImage
+    )
+
+    fun News.toNewsFavoriteDomain() = NewsFavoriteDomain(
         url, content, publishedAt, source, title, urlToImage
     )
 }

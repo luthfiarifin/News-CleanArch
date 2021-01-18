@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.laam.core.data.source.local.room.NewsDao
 import com.laam.core.data.source.local.room.NewsDatabase
+import com.laam.core.data.source.local.room.NewsFavoriteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,4 +29,7 @@ class DatabaseModule {
 
     @Provides
     fun provideNewsDao(database: NewsDatabase): NewsDao = database.newsDao()
+
+    @Provides
+    fun provideNewsFavoriteDao(database: NewsDatabase): NewsFavoriteDao = database.newsFavoriteDao()
 }

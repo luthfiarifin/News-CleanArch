@@ -5,10 +5,15 @@ import com.laam.core.data.source.remote.RemoteDataSource
 import com.laam.core.data.source.remote.network.ApiResponse
 import com.laam.core.data.source.remote.response.ArticleResponse
 import com.laam.core.domain.model.NewsDomain
+import com.laam.core.domain.model.NewsFavoriteDomain
 import com.laam.core.domain.repository.INewsRepository
 import com.laam.core.utils.DataMapper.mapToNewsDomain
 import com.laam.core.utils.DataMapper.mapToNewsEntity
+import com.laam.core.utils.DataMapper.mapTopNewsFavoriteDomain
+import com.laam.core.utils.DataMapper.mapToNewsFavoriteEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -47,4 +52,20 @@ class NewsRepository @Inject constructor(
                 localDataSource.insertNews(newsEntities)
             }
         }.asFlow()
+
+    override fun isNewsFavorite(url: String): Flow<Boolean> = flow {
+        emit(localDataSource.getNewsFavorite(url).first() != null)
+    }
+
+    override fun insertNewsFavorite(newsFavoriteDomain: NewsFavoriteDomain): Flow<Long> = flow {
+        emit(localDataSource.insertNewsFavorite(newsFavoriteDomain.mapToNewsFavoriteEntity()))
+    }
+
+    override fun deleteNewsFavorite(url: String): Flow<Int> = flow {
+        emit(localDataSource.deleteNewsFavorite(url))
+    }
+
+    override fun getAllNewsFavorite(): Flow<List<NewsFavoriteDomain>> =
+        localDataSource.getAllNewsFavorite()
+            .map { it.map { entity -> entity.mapTopNewsFavoriteDomain() } }
 }
