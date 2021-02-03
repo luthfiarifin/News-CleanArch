@@ -1,4 +1,4 @@
-package com.laam.search.news_cleanarch
+package com.laam.news_cleanarch.search
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,8 @@ import com.laam.base.news_cleanarch.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
-import com.laam.search.news_cleanarch.databinding.FragmentNewsSearchBinding
+import com.laam.news_cleanarch.search.R
+import com.laam.news_cleanarch.search.databinding.FragmentNewsSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
