@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.laam.detail.news_cleanarch.DetailFragment"
+        android:name="com.laam.news_cleanarch.detail.DetailFragment"
         android:label="DetailFragment" />
 </navigation>
