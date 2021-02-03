@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.laam.news_cleanarch.base.BaseFragmentVm
 import com.laam.news_cleanarch.base.ext.SnackBarUtil.showSnackBar
-import com.laam.core.domain.model.NewsFavoriteDomain
-import com.laam.core.presentation.model.News
-import com.laam.core.utils.DataMapper.toNewsFavoriteDomain
+import com.laam.news_cleanarch.core.domain.model.NewsFavoriteDomain
+import com.laam.news_cleanarch.core.presentation.model.News
+import com.laam.news_cleanarch.core.utils.DataMapper.toNewsFavoriteDomain
 import com.laam.news_cleanarch.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 

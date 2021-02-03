@@ -8,8 +8,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.laam.news_cleanarch.base.BaseFragment
 import com.laam.news_cleanarch.base.adapter.NewsListAdapter
-import com.laam.core.presentation.model.News
-import com.laam.core.utils.DataMapper.mapToNews
+import com.laam.news_cleanarch.core.presentation.model.News
+import com.laam.news_cleanarch.core.utils.DataMapper.mapToNews
 import com.laam.news_cleanarch.di.FavoriteModuleDependencies
 import com.laam.news_cleanarch.favorite.databinding.FragmentFavoriteListBinding
 import com.laam.news_cleanarch.favorite.di.DaggerFavoriteComponent

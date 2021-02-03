@@ -10,9 +10,9 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.laam.news_cleanarch.base.BaseFragmentVm
-import com.laam.core.data.Resource
-import com.laam.core.presentation.model.News
-import com.laam.core.utils.DataMapper.mapToNews
+import com.laam.news_cleanarch.core.data.Resource
+import com.laam.news_cleanarch.core.presentation.model.News
+import com.laam.news_cleanarch.core.utils.DataMapper.mapToNews
 import com.laam.news_cleanarch.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 

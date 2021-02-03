@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.laam.core.presentation.model.News
+import com.laam.news_cleanarch.core.presentation.model.News
 import com.laam.news_cleanarch.home.databinding.ItemNewsTopHeadlineBinding
 
 /**

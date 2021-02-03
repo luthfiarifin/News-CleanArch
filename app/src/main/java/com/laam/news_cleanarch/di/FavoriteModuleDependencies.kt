@@ -1,6 +1,6 @@
 package com.laam.news_cleanarch.di
 
-import com.laam.core.domain.usecase.NewsUseCase
+import com.laam.news_cleanarch.core.domain.usecase.NewsUseCase
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent

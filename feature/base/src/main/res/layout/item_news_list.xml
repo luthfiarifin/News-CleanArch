@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.laam.core.presentation.model.News" />
+            type="com.laam.news_cleanarch.core.presentation.model.News" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

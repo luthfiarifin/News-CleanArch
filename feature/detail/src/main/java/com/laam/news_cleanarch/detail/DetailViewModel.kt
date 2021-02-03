@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.laam.news_cleanarch.base.BaseViewModel
-import com.laam.core.domain.model.NewsFavoriteDomain
-import com.laam.core.domain.usecase.NewsUseCase
-import com.laam.core.presentation.model.News
+import com.laam.news_cleanarch.core.domain.model.NewsFavoriteDomain
+import com.laam.news_cleanarch.core.domain.usecase.NewsUseCase
+import com.laam.news_cleanarch.core.presentation.model.News
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
