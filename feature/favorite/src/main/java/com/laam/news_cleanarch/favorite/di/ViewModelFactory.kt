@@ -2,7 +2,7 @@ package com.laam.news_cleanarch.favorite.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.laam.core.domain.usecase.NewsUseCase
+import com.laam.news_cleanarch.core.domain.usecase.NewsUseCase
 import com.laam.news_cleanarch.favorite.FavoriteListViewModel
 import javax.inject.Inject
 

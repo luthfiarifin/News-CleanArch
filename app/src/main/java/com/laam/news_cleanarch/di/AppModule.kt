@@ -1,7 +1,7 @@
 package com.laam.news_cleanarch.di
 
-import com.laam.core.domain.usecase.NewsInteractor
-import com.laam.core.domain.usecase.NewsUseCase
+import com.laam.news_cleanarch.core.domain.usecase.NewsInteractor
+import com.laam.news_cleanarch.core.domain.usecase.NewsUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
