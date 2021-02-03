@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.laam.base.news_cleanarch.BaseFragment
-import com.laam.base.news_cleanarch.adapter.NewsListAdapter
+import com.laam.news_cleanarch.base.BaseFragment
+import com.laam.news_cleanarch.base.adapter.NewsListAdapter
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
 import com.laam.news_cleanarch.di.FavoriteModuleDependencies
@@ -112,6 +112,6 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
 
     private fun navigateToDetailFragment(news: News) {
         val bundle = bundleOf("news" to news)
-        findNavController().navigate(com.laam.base.news_cleanarch.R.id.detail_nav_graph, bundle)
+        findNavController().navigate(com.laam.news_cleanarch.base.R.id.detail_nav_graph, bundle)
     }
 }

@@ -2,7 +2,7 @@ package com.laam.news_cleanarch.favorite
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.asLiveData
-import com.laam.base.news_cleanarch.BaseViewModel
+import com.laam.news_cleanarch.base.BaseViewModel
 import com.laam.core.domain.usecase.NewsUseCase
 
 /**

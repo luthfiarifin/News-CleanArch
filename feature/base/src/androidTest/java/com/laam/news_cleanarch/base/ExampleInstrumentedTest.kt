@@ -1,4 +1,4 @@
-package com.laam.base.news_cleanarch
+package com.laam.news_cleanarch.base
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.laam.base.news_cleanarch.test", appContext.packageName)
+        assertEquals("com.laam.news_cleanarch.base.test", appContext.packageName)
     }
 }

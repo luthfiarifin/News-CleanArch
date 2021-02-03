@@ -1,4 +1,4 @@
-package com.laam.base.news_cleanarch
+package com.laam.news_cleanarch.base
 
 import androidx.lifecycle.ViewModel
 

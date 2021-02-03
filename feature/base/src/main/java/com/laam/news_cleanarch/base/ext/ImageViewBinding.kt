@@ -1,4 +1,4 @@
-package com.laam.base.news_cleanarch.ext
+package com.laam.news_cleanarch.base.ext
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
