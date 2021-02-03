@@ -1,4 +1,4 @@
-package com.laam.home.news_cleanarch.list
+package com.laam.news_cleanarch.home.list
 
 import androidx.databinding.ObservableBoolean
 import androidx.hilt.lifecycle.ViewModelInject

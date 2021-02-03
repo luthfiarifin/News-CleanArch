@@ -1,4 +1,4 @@
-package com.laam.home.news_cleanarch.list
+package com.laam.news_cleanarch.home.list
 
 import android.os.Bundle
 import android.view.View
@@ -9,8 +9,8 @@ import com.laam.base.news_cleanarch.adapter.NewsListAdapter
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
-import com.laam.home.news_cleanarch.R
-import com.laam.home.news_cleanarch.databinding.FragmentNewsListBinding
+import com.laam.news_cleanarch.home.R
+import com.laam.news_cleanarch.home.databinding.FragmentNewsListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

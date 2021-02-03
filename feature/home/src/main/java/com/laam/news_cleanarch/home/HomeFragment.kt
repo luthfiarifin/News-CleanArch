@@ -1,4 +1,4 @@
-package com.laam.home.news_cleanarch
+package com.laam.news_cleanarch.home
 
 import android.os.Bundle
 import android.view.Menu
@@ -13,7 +13,7 @@ import com.laam.base.news_cleanarch.BaseFragmentVm
 import com.laam.core.data.Resource
 import com.laam.core.presentation.model.News
 import com.laam.core.utils.DataMapper.mapToNews
-import com.laam.home.news_cleanarch.databinding.FragmentHomeBinding
+import com.laam.news_cleanarch.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

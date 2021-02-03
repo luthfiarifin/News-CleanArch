@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.laam.home.news_cleanarch.HomeFragment"
+        android:name="com.laam.news_cleanarch.home.HomeFragment"
         android:label="HomeFragment" />
 </navigation>

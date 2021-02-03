@@ -1,4 +1,4 @@
-package com.laam.home.news_cleanarch
+package com.laam.news_cleanarch.home
 
 import org.junit.Test
 
