@@ -11,6 +11,7 @@ import com.laam.news_cleanarch.core.domain.usecase.NewsUseCase
 class FavoriteListViewModel(newsUseCase: NewsUseCase) : BaseViewModel() {
 
     val isLoading = ObservableBoolean(true)
+    val isEmpty = ObservableBoolean(false)
 
     val allNewsFavorite = newsUseCase.getAllNewsFavorite().asLiveData()
 }
