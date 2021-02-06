@@ -17,7 +17,6 @@
         <EditText
             android:id="@+id/searchView"
             android:layout_width="0dp"
-            android:textSize="14sp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
@@ -30,6 +29,7 @@
             android:imeOptions="actionSearch"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,6 +47,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/searchView"
             app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="40dp"
+            app:isVisible="@{viewModel.isEmpty()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="empty_state.json"
+            app:lottie_loop="true"
             tools:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView

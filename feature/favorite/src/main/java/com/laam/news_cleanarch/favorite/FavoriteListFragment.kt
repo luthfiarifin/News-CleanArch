@@ -88,6 +88,8 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
             rvListAdapter.submitList(news)
             startShimmer(false)
             viewModel.isLoading.set(false)
+
+            viewModel.isEmpty.set(news.isEmpty())
         }
     }
 
