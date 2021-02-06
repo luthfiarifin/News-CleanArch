@@ -85,6 +85,8 @@ class NewsSearchFragment : BaseFragmentVm<FragmentNewsSearchBinding, NewsSearchV
                     rvListAdapter.submitList(newsList)
                     startShimmer(false)
                     viewModel.isLoading.set(false)
+
+                    viewModel.isEmpty.set(newsList?.isNullOrEmpty() == true)
                 }
                 is Resource.Error -> {
                     startShimmer(false)

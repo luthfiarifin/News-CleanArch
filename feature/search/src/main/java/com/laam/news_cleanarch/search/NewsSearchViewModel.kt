@@ -14,6 +14,7 @@ class NewsSearchViewModel @ViewModelInject constructor(
 ) : BaseViewModel() {
 
     val isLoading = ObservableBoolean(true)
+    val isEmpty = ObservableBoolean(false)
 
     private var page: Int = 1
     var qSearch: String = ""
