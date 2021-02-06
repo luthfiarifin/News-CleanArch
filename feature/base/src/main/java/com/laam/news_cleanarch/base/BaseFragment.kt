@@ -14,10 +14,10 @@ import androidx.fragment.app.Fragment
  */
 abstract class BaseFragment<ViewBinding : ViewDataBinding> : Fragment() {
 
-    private lateinit var mViewBinding: ViewBinding
+    private var mViewBinding: ViewBinding? = null
 
     val viewBinding
-        get() = mViewBinding
+        get() = mViewBinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +26,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding> : Fragment() {
     ): View? {
         mViewBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
 
-        return mViewBinding.root
+        return mViewBinding?.root
     }
 
     abstract fun getLayoutId(): Int
@@ -37,5 +37,10 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding> : Fragment() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mViewBinding = null
     }
 }

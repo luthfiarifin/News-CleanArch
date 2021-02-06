@@ -38,8 +38,8 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
         setUpToolbar()
         setUpBinding()
         setUpAdapter()
-        observeTopHeadline()
         setUpViewPager()
+        observeTopHeadline()
     }
 
     private fun setUpToolbar() {
@@ -72,6 +72,7 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
         )
 
         viewBinding.viewPager.adapter = activity?.let { HomePagerAdapter(it, categoryList) }
+        viewBinding.viewPager.isSaveEnabled = false
         setUpTabMediator(categoryList)
     }
 
@@ -153,5 +154,10 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
     private fun navigateToDetailFragment(news: News) {
         val bundle = bundleOf("news" to news)
         findNavController().navigate(R.id.detail_nav_graph, bundle)
+    }
+
+    override fun onDestroyView() {
+        viewBinding.viewPager.adapter = null
+        super.onDestroyView()
     }
 }

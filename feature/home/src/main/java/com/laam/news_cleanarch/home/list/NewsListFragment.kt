@@ -106,4 +106,9 @@ class NewsListFragment : BaseFragmentVm<FragmentNewsListBinding, NewsListViewMod
         val bundle = bundleOf("news" to news)
         findNavController().navigate(R.id.detail_nav_graph, bundle)
     }
+
+    override fun onDestroyView() {
+        viewBinding.rvList.adapter = null
+        super.onDestroyView()
+    }
 }
