@@ -22,6 +22,7 @@ buildscript {
         logging_interceptor_version = '4.9.0'
 
         room_version = "2.2.6"
+        sqlchiper_version = "4.4.0"
 
         hilt_version = '2.28-alpha'
         hilt_jetpack_version = '1.0.0-alpha02'
