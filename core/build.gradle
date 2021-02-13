@@ -21,6 +21,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
+        buildConfigField "String", "NEWS_API_HOSTNAME", "\"newsapi.org\""
         buildConfigField "String", "NEWS_API_URL", "\"https://newsapi.org/v2/\""
         buildConfigField "String", "NEWS_API_KEY", "\"0ba83abba7724a0a93a918cb9484bc80\""
     }
