@@ -54,13 +54,11 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setUpBinding() {
-        viewBinding.viewModel = viewModel
+        viewBinding?.viewModel = viewModel
     }
 
     private fun setUpAdapter() {
-        with(viewBinding.rvTopHeadline) {
-            adapter = rvTopHeadLineAdapter
-        }
+        viewBinding?.rvTopHeadline?.adapter = rvTopHeadLineAdapter
     }
 
     private fun setUpViewPager() {
@@ -72,7 +70,7 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
             "Makanan"
         )
 
-        viewBinding.viewPager.adapter =
+        viewBinding?.viewPager?.adapter =
             activity?.let {
                 HomePagerAdapter(
                     childFragmentManager,
@@ -80,15 +78,17 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
                     categoryList
                 )
             }
-        viewBinding.viewPager.isSaveEnabled = false
+        viewBinding?.viewPager?.isSaveEnabled = false
         setUpTabMediator(categoryList)
     }
 
     private fun setUpTabMediator(categoryList: List<String>) {
-        mediator = TabLayoutMediator(
-            viewBinding.tabLayout, viewBinding.viewPager
-        ) { tab, position -> tab.text = categoryList[position] }
-        mediator?.attach()
+        viewBinding?.apply {
+            mediator = TabLayoutMediator(
+                tabLayout, viewPager
+            ) { tab, position -> tab.text = categoryList[position] }
+            mediator?.attach()
+        }
     }
 
     private fun onTopHeadlineOnClick(news: News) {
@@ -126,8 +126,8 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun startShimmer(isStart: Boolean = true) {
-        if (isStart) viewBinding.placeholderTopHeadline.shimmer.startShimmer()
-        else viewBinding.placeholderTopHeadline.shimmer.stopShimmer()
+        if (isStart) viewBinding?.placeholderTopHeadline?.shimmer?.startShimmer()
+        else viewBinding?.placeholderTopHeadline?.shimmer?.stopShimmer()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -168,8 +168,8 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
     override fun onDestroyView() {
         mediator?.detach()
         mediator = null
-        viewBinding.viewPager.adapter = null
-        viewBinding.rvTopHeadline.adapter = null
+        viewBinding?.viewPager?.adapter = null
+        viewBinding?.rvTopHeadline?.adapter = null
         super.onDestroyView()
     }
 }

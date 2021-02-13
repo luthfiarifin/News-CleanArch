@@ -73,13 +73,11 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
     }
 
     private fun setUpBinding() {
-        viewBinding.viewModel = viewModel
+        viewBinding?.viewModel = viewModel
     }
 
     private fun setUpAdapter() {
-        with(viewBinding.rvList) {
-            adapter = rvListAdapter
-        }
+        viewBinding?.rvList?.adapter = rvListAdapter
     }
 
     private fun observeNews() {
@@ -108,8 +106,8 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
     }
 
     private fun startShimmer(isStart: Boolean = true) {
-        if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
-        else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
+        if (isStart) viewBinding?.placeHolderNewsList?.shimmer?.startShimmer()
+        else viewBinding?.placeHolderNewsList?.shimmer?.stopShimmer()
     }
 
     private fun navigateToDetailFragment(news: News) {
@@ -118,7 +116,7 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
     }
 
     override fun onDestroyView() {
-        viewBinding.rvList.adapter = null
+        viewBinding?.rvList?.adapter = null
         super.onDestroyView()
     }
 }

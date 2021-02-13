@@ -17,7 +17,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding> : Fragment() {
     private var mViewBinding: ViewBinding? = null
 
     val viewBinding
-        get() = mViewBinding!!
+        get() = mViewBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,

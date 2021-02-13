@@ -50,9 +50,9 @@ class NewsSearchFragment : BaseFragmentVm<FragmentNewsSearchBinding, NewsSearchV
     }
 
     private fun setUpSearch() {
-        viewBinding.searchView.setOnEditorActionListener { _, i, _ ->
+        viewBinding?.searchView?.setOnEditorActionListener { _, i, _ ->
             if (i == EditorInfo.IME_ACTION_SEARCH) {
-                viewBinding.searchView.clearFocus()
+                viewBinding?.searchView?.clearFocus()
                 onSearch()
                 true
             } else false
@@ -60,18 +60,16 @@ class NewsSearchFragment : BaseFragmentVm<FragmentNewsSearchBinding, NewsSearchV
     }
 
     private fun onSearch() {
-        viewModel.qSearch = viewBinding.searchView.text.toString()
+        viewModel.qSearch = viewBinding?.searchView?.text.toString()
         observeNews()
     }
 
     private fun setUpBinding() {
-        viewBinding.viewModel = viewModel
+        viewBinding?.viewModel = viewModel
     }
 
     private fun setUpAdapter() {
-        with(viewBinding.rvList) {
-            adapter = rvListAdapter
-        }
+        viewBinding?.rvList?.adapter = rvListAdapter
     }
 
     private fun observeNews() {
@@ -111,8 +109,8 @@ class NewsSearchFragment : BaseFragmentVm<FragmentNewsSearchBinding, NewsSearchV
     }
 
     private fun startShimmer(isStart: Boolean = true) {
-        if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
-        else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
+        if (isStart) viewBinding?.placeHolderNewsList?.shimmer?.startShimmer()
+        else viewBinding?.placeHolderNewsList?.shimmer?.stopShimmer()
     }
 
     private fun navigateToDetailFragment(news: News) {
@@ -121,7 +119,7 @@ class NewsSearchFragment : BaseFragmentVm<FragmentNewsSearchBinding, NewsSearchV
     }
 
     override fun onDestroyView() {
-        viewBinding.rvList.adapter = null
+        viewBinding?.rvList?.adapter = null
         super.onDestroyView()
     }
 }

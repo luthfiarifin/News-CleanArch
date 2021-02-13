@@ -55,7 +55,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
     }
 
     private fun setUpViewBinding() {
-        viewBinding.viewModel = viewModel
+        viewBinding?.viewModel = viewModel
     }
 
     private fun setUpVariable() {
@@ -67,7 +67,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setUpWebView() {
-        with(viewBinding.webView) {
+        viewBinding?.webView?.apply {
             viewModel.news?.let { loadUrl(it.url) }
 
             settings.let { webSetting ->
@@ -146,7 +146,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
 
     override fun onDestroyView() {
         itemFavorite = null
-        viewBinding.webView.loadUrl("about:blank")
+        viewBinding?.webView?.loadUrl("about:blank")
         super.onDestroyView()
     }
 }
