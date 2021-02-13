@@ -12,14 +12,17 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewBinding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewBinding =
+        val viewBinding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         setSupportActionBar(viewBinding.appToolbar.toolbar)
+    }
+
+    override fun onDestroy() {
+        setSupportActionBar(null)
+        super.onDestroy()
     }
 }

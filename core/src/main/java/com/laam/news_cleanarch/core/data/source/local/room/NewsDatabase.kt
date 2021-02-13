@@ -17,6 +17,7 @@ abstract class NewsDatabase : RoomDatabase() {
 
     companion object {
         const val DB_NAME = "News.db"
+        const val DB_PASSWORD = "LaamNewsCleanArchDatabase"
         const val NEWS_TABLE_NAME = "news"
         const val NEWS_FAVORITE_TABLE_NAME = "news_favorite"
     }

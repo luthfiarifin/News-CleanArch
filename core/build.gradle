@@ -21,13 +21,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
+        buildConfigField "String", "NEWS_API_HOSTNAME", "\"newsapi.org\""
         buildConfigField "String", "NEWS_API_URL", "\"https://newsapi.org/v2/\""
         buildConfigField "String", "NEWS_API_KEY", "\"0ba83abba7724a0a93a918cb9484bc80\""
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -53,6 +58,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+    
+    // SQL Chiper
+    implementation "net.zetetic:android-database-sqlcipher:$sqlchiper_version"
 
     // Kotlin Coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"

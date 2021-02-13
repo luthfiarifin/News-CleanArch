@@ -25,7 +25,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -49,7 +53,4 @@ dependencies {
     implementation project(":feature:base")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-    // View pager 2
-    implementation "com.google.android.material:material:$viewpager2_version"
 }

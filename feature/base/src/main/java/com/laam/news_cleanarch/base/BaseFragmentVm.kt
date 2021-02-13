@@ -8,8 +8,6 @@ import androidx.lifecycle.ViewModelProvider
  */
 abstract class BaseFragmentVm<ViewBinding : ViewDataBinding, ViewModel : androidx.lifecycle.ViewModel> : BaseFragment<ViewBinding>() {
 
-    private lateinit var mViewBinding: ViewBinding
-
     val viewModel: ViewModel by lazy { ViewModelProvider(this).get(getViewModelClass()) }
 
     abstract fun getViewModelClass(): Class<ViewModel>

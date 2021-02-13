@@ -73,13 +73,11 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
     }
 
     private fun setUpBinding() {
-        viewBinding.viewModel = viewModel
+        viewBinding?.viewModel = viewModel
     }
 
     private fun setUpAdapter() {
-        with(viewBinding.rvList) {
-            adapter = rvListAdapter
-        }
+        viewBinding?.rvList?.adapter = rvListAdapter
     }
 
     private fun observeNews() {
@@ -108,12 +106,17 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
     }
 
     private fun startShimmer(isStart: Boolean = true) {
-        if (isStart) viewBinding.placeHolderNewsList.shimmer.startShimmer()
-        else viewBinding.placeHolderNewsList.shimmer.stopShimmer()
+        if (isStart) viewBinding?.placeHolderNewsList?.shimmer?.startShimmer()
+        else viewBinding?.placeHolderNewsList?.shimmer?.stopShimmer()
     }
 
     private fun navigateToDetailFragment(news: News) {
         val bundle = bundleOf("news" to news)
         findNavController().navigate(com.laam.news_cleanarch.base.R.id.detail_nav_graph, bundle)
+    }
+
+    override fun onDestroyView() {
+        viewBinding?.rvList?.adapter = null
+        super.onDestroyView()
     }
 }

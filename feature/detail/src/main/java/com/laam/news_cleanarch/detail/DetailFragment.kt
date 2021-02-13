@@ -28,7 +28,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
 
     override fun getLayoutId(): Int = R.layout.fragment_detail
 
-    private lateinit var itemFavorite: MenuItem
+    private var itemFavorite: MenuItem? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,7 +55,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
     }
 
     private fun setUpViewBinding() {
-        viewBinding.viewModel = viewModel
+        viewBinding?.viewModel = viewModel
     }
 
     private fun setUpVariable() {
@@ -67,7 +67,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setUpWebView() {
-        with(viewBinding.webView) {
+        viewBinding?.webView?.apply {
             viewModel.news?.let { loadUrl(it.url) }
 
             settings.let { webSetting ->
@@ -87,7 +87,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
 
     private fun setIconFavorite(isFavorite: Boolean?) {
         activity?.let {
-            itemFavorite.icon = if (isFavorite == true) {
+            itemFavorite?.icon = if (isFavorite == true) {
                 ContextCompat.getDrawable(it, R.drawable.ic_favorite_active)
             } else {
                 ContextCompat.getDrawable(it, R.drawable.ic_favorite_not_active)
@@ -142,5 +142,11 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
             view?.showSnackBar("Add to favorite success")
             viewModel.setIsNewsFavorite(true)
         }
+    }
+
+    override fun onDestroyView() {
+        itemFavorite = null
+        viewBinding?.webView?.loadUrl("about:blank")
+        super.onDestroyView()
     }
 }
