@@ -116,4 +116,9 @@ class FavoriteListFragment : BaseFragment<FragmentFavoriteListBinding>() {
         val bundle = bundleOf("news" to news)
         findNavController().navigate(com.laam.news_cleanarch.base.R.id.detail_nav_graph, bundle)
     }
+
+    override fun onDestroyView() {
+        viewBinding.rvList.adapter = null
+        super.onDestroyView()
+    }
 }

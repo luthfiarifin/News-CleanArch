@@ -20,4 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(viewBinding.appToolbar.toolbar)
     }
+
+    override fun onDestroy() {
+        setSupportActionBar(null)
+        super.onDestroy()
+    }
 }

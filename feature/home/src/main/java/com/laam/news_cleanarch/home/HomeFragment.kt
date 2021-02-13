@@ -71,7 +71,14 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
             "Makanan"
         )
 
-        viewBinding.viewPager.adapter = activity?.let { HomePagerAdapter(it, categoryList) }
+        viewBinding.viewPager.adapter =
+            activity?.let {
+                HomePagerAdapter(
+                    childFragmentManager,
+                    viewLifecycleOwner.lifecycle,
+                    categoryList
+                )
+            }
         viewBinding.viewPager.isSaveEnabled = false
         setUpTabMediator(categoryList)
     }
@@ -158,6 +165,7 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
 
     override fun onDestroyView() {
         viewBinding.viewPager.adapter = null
+        viewBinding.rvTopHeadline.adapter = null
         super.onDestroyView()
     }
 }
