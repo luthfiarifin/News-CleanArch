@@ -22,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
 
+    private var mediator: TabLayoutMediator? = null
     private val rvTopHeadLineAdapter by lazy {
         TopHeadlineAdapter { news ->
             onTopHeadlineOnClick(news)
@@ -84,9 +85,10 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setUpTabMediator(categoryList: List<String>) {
-        TabLayoutMediator(
+        mediator = TabLayoutMediator(
             viewBinding.tabLayout, viewBinding.viewPager
-        ) { tab, position -> tab.text = categoryList[position] }.attach()
+        ) { tab, position -> tab.text = categoryList[position] }
+        mediator?.attach()
     }
 
     private fun onTopHeadlineOnClick(news: News) {
@@ -164,6 +166,8 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun onDestroyView() {
+        mediator?.detach()
+        mediator = null
         viewBinding.viewPager.adapter = null
         viewBinding.rvTopHeadline.adapter = null
         super.onDestroyView()
