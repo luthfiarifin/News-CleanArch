@@ -78,7 +78,6 @@ class HomeFragment : BaseFragmentVm<FragmentHomeBinding, HomeViewModel>() {
                     categoryList
                 )
             }
-        viewBinding?.viewPager?.isSaveEnabled = false
         setUpTabMediator(categoryList)
     }
 
