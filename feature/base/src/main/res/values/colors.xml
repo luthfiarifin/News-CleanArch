@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#E1FFFFFF</color>
 
-    <color name="backgroundToolbar">#F1F1F1</color>
+    <color name="backgroundToolbar">#FFFFFF</color>
 
     <color name="colorGrey">#dddddd</color>
     <color name="colorGreySoft">#EDEDED</color>

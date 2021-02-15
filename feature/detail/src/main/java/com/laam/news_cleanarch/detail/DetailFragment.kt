@@ -46,7 +46,7 @@ class DetailFragment : BaseFragmentVm<FragmentDetailBinding, DetailViewModel>() 
 
     private fun setUpToolbar() {
         (activity as AppCompatActivity?)?.supportActionBar?.apply {
-            title = context?.getString(R.string.app_name)
+            title = ""
 
             setHasOptionsMenu(true)
             setDisplayHomeAsUpEnabled(true)
