@@ -8,7 +8,7 @@ import com.laam.news_cleanarch.core.data.source.local.entity.NewsFavoriteEntity
 /**
  * Created by luthfiarifin on 1/7/2021.
  */
-@Database(entities = [NewsEntity::class, NewsFavoriteEntity::class], version = 2, exportSchema = false)
+@Database(entities = [NewsEntity::class, NewsFavoriteEntity::class], version = 3, exportSchema = false)
 abstract class NewsDatabase : RoomDatabase() {
 
     abstract fun newsDao(): NewsDao
